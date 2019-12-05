@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    <!-- perf datasource -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="${jdbc.driverClass}"/>
+        <property name="jdbcUrl" value="${jdbc.jdbcUrl}"/>
+        <property name="user" value="${jdbc.user}"/>
+        <property name="password" value="${jdbc.password}"/>
+
+        <property name="minPoolSize" value="${jdbc.minPoolSize}"/>
+        <property name="maxPoolSize" value="${jdbc.maxPoolSize}"/>
+        <property name="initialPoolSize" value="${jdbc.initialPoolSize}"/>
+        <property name="acquireIncrement" value="${jdbc.acquireIncrement}"/>
+
+        <property name="maxIdleTime" value="${jdbc.maxIdleTime}"/>
+        <property name="maxConnectionAge" value="${jdbc.maxConnectionAge}"/>
+        <property name="maxIdleTimeExcessConnections" value="${jdbc.maxIdleTimeExcessConnections}"/>
+
+        <property name="idleConnectionTestPeriod" value="${jdbc.idleConnectionTestPeriod}"/>
+        <property name="testConnectionOnCheckin" value="${jdbc.testConnectionOnCheckin}"/>
+        <property name="testConnectionOnCheckout" value="${jdbc.testConnectionOnCheckout}"/>
+        <property name="preferredTestQuery" value="${jdbc.preferredTestQuery}"/>
+
+        <property name="acquireRetryAttempts" value="${jdbc.acquireRetryAttempts}"/>
+        <property name="acquireRetryDelay" value="${jdbc.acquireRetryDelay}"/>
+
+        <property name="checkoutTimeout" value="${jdbc.checkoutTimeout}"/>
+        <property name="numHelperThreads" value="${jdbc.numHelperThreads}"/>
+    </bean>
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="configLocation" value="classpath:mybatis-config.xml"></property>
+        <!--<property name="mapperLocations" value="classpath:mapper/*.xml"></property>-->
+    </bean>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="org.homeway.activiti.demo.dao"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+    </bean>
+
+</beans>

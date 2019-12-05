@@ -1,0 +1,23 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="activity-base:war exploded">
+    <output-path>$PROJECT_DIR$/activity-base/target/activity-base</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>activity-base</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="activiti-spring" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/activiti-spring/target/activity-base/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="activiti-spring/web/Web" />
+    </root>
+  </artifact>
+</component>

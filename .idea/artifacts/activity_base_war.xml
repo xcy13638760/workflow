@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="activity-base:war">
+    <output-path>$PROJECT_DIR$/activity-base/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>activity-base</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="activity-base.war">
+      <element id="artifact" artifact-name="activity-base:war exploded" />
+    </root>
+  </artifact>
+</component>
