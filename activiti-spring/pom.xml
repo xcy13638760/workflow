@@ -5,11 +5,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.study.workflow</groupId>
-  <artifactId>activiti-base</artifactId>
+  <artifactId>activiti-spring</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>activiti-base Maven Webapp</name>
+  <name>activiti-spring</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -175,7 +175,7 @@
   </dependencyManagement>
 
   <build>
-    <finalName>activiti-base</finalName>
+    <finalName>activiti-spring</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>

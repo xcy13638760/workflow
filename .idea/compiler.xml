@@ -6,12 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="activiti-base" />
         <module name="activiti-spring" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="activiti-base" target="1.8" />
       <module name="activiti-spring" target="1.8" />
-      <module name="workflow" target="1.5" />
+      <module name="workflow" target="1.8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="activiti-base" options="-parameters" />
+    </option>
   </component>
 </project>
